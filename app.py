@@ -41,7 +41,9 @@ filtered = df[df["Brand"].isin(sel_brands) & df["Category"].isin(sel_cats)]
 
 # ---------- Top metrics ----------
 c1, c2 = st.columns(2)
-c1.metric("Total cars", len(filtered))
+# considering 5pack and 2 packs
+extras = 9
+c1.metric("Total cars", len(filtered) + extras )
 c2.metric("Total price", f"{CURRENCY}{filtered['Price'].sum():,.0f}")
 
 st.divider()
